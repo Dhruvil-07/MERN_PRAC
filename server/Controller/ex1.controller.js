@@ -157,6 +157,8 @@ async function searchdata(req,res)
                 {email : new RegExp(key,"i")},
                 {gender : new RegExp(key,"i")},
                 {address : new RegExp(key,"i")},
+                {qualification : new RegExp(key,"i")},
+                {dob : new RegExp(key,"i")},
             ]
         });
 

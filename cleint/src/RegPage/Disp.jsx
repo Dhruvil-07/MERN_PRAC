@@ -40,6 +40,28 @@ export default function Disp() {
     }
   }
 
+  //function for search data
+  async function searchdata(key)
+  {
+     try
+     {
+        if(key)
+        {
+          const response = await axios.get(`http://localhost:8000/ex1/search/${key}`);
+          setUserdata(response.data.data);  
+        }
+        else
+        {
+          getdata();
+        }
+        
+     }
+     catch(error)
+     {
+        alert(error.response.data.msg);
+     }
+  }
+
   return (
     <>
 
@@ -52,7 +74,9 @@ export default function Disp() {
               className="form-control me-2"
               type="search"
               placeholder="Search"
-              aria-label="Search" />
+              aria-label="Search"
+              onChange={(e)=>{ searchdata(e.target.value)}}
+              />
             <button className="btn btn-outline-success" type="submit">
               Search
             </button>
